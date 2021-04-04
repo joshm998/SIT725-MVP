@@ -1,17 +1,18 @@
-let express = require('express');
-let app = express();
+const express = require('express');
+const path = require('path');
 
-let http = require('http').createServer(app);
+const app = express();
 
-let port = process.env.PORT || 8080;
+const http = require('http').createServer(app);
 
+const port = process.env.PORT || 8080;
 
 app.get('/api/test', (req, res) => {
   res.send('Hello World');
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, '/public')));
 
-http.listen(port, ()=> {
-    console.log("Listening on Port ", port);
-})
+http.listen(port, () => {
+  console.log('Listening on Port ', port);
+});
