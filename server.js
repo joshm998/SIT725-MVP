@@ -5,7 +5,6 @@ let http = require('http').createServer(app);
 
 let port = process.env.PORT || 8080;
 
-// App
 
 app.get('/test', (req, res) => {
   res.send('Hello World');
