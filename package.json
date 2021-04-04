@@ -1,0 +1,13 @@
+{
+  "name": "aqua_service",
+  "version": "1.0.0",
+  "description": "Aqua Backend and Frontend Project",
+  "author": "Josh Mangiola joshm982@gmail.com",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
