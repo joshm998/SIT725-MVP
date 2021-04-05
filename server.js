@@ -10,9 +10,10 @@ const expressSession = require('express-session')({
   saveUninitialized: false
 });
 const { userSchema} = require('./models/user');
+require('dotenv').config()
 
 
-mongoose.connect('', {
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}/${process.env.MONGO_DB}?retryWrites=true&w=majority`, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
