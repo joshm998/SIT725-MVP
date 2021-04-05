@@ -12,7 +12,7 @@ const expressSession = require('express-session')({
 const { userSchema} = require('./models/user');
 
 
-mongoose.connect('***REMOVED***', {
+mongoose.connect('', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
