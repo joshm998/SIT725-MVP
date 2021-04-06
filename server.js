@@ -3,13 +3,12 @@ const path = require('path');
 const passport = require('passport');
 const mongoose = require('mongoose');
 const passportLocalMongoose = require('passport-local-mongoose');
-const connectEnsureLogin = require('connect-ensure-login');
 const expressSession = require('express-session')({
   secret: 'secret',
   resave: false,
   saveUninitialized: false
 });
-const { userSchema} = require('./models/user');
+const { userSchema} = require('./src/models/user');
 require('dotenv').config()
 
 
@@ -43,44 +42,7 @@ passport.use(UserDetails.createStrategy());
 passport.serializeUser(UserDetails.serializeUser());
 passport.deserializeUser(UserDetails.deserializeUser());
 
-// Routes 
-app.post('/login', (req, res, next) => {
-  passport.authenticate('local',
-  (err, user, info) => {
-    if (err) {
-      return next(err);
-    }
-
-    if (!user) {
-      return res.redirect(`/login?info=${info.message}`);
-    }
-
-    req.logIn(user, () => {
-      if (err) {
-        return next(err);
-      }
-
-      return res.redirect('/');
-    });
-    return null;
-
-  })(req, res, next);
-});
-
-app.get('/login',
-  (req, res) => res.sendFile('public/login/index.html',
-  { root: __dirname })
-);
-
-app.get('/',
-  connectEnsureLogin.ensureLoggedIn(),
-  (req, res) => res.sendFile('public/index.html', {root: __dirname})
-);
-
-app.get('/user',
-  connectEnsureLogin.ensureLoggedIn(),
-  (req, res) => res.send({user: req.user})
-);
+require('./src/routes')(app);
 
 http.listen(port, () => {
   console.log('Listening on Port ', port);
