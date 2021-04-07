@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const passport = require('passport');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 const passportLocalMongoose = require('passport-local-mongoose');
 const expressSession = require('express-session')({
   secret: 'secret',
@@ -9,15 +10,14 @@ const expressSession = require('express-session')({
   saveUninitialized: false
 });
 const { userSchema} = require('./src/models/user');
-require('dotenv').config()
 
+// Setup Environment Variables
+dotenv.config()
+// Setup MongoDB
+const mongo = require('./config/mongo')
 
-mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_URL}/${process.env.MONGO_DB}?retryWrites=true&w=majority`, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
 userSchema.plugin(passportLocalMongoose);
-const UserDetails = mongoose.model('User', userSchema);
+const UserDetails = mongo.model('User', userSchema);
 
 const app = express();
 const http = require('http').createServer(app);
@@ -29,7 +29,7 @@ app.use(
   '/materialize',
   express.static(path.join(__dirname, '/node_modules/materialize-css/dist'))
 );
-app.use(express.static(path.join(__dirname, '/public'), {index:false,extensions:['js', 'css']}));
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.use(express.json());
 app.use(express.urlencoded({
