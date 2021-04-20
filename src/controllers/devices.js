@@ -1,19 +1,27 @@
 const express = require('express');
-const isAuthenticated = require('../helpers/authHelper')
+const isAuthenticated = require('../helpers/authHelper');
 const DeviceModel = require('../models/device');
 
 
 const router = express.Router();
 
 // Routes
-router.get('', isAuthenticated, (req, res) =>
-  res.send({ devices: req.user })
-);
+router.get('', isAuthenticated, (req, res) => {
+  DeviceModel.find({ownerId: req.user.id})
+  .then((result) => {
+    res.send({ devices: result });
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+  
+});
 
 router.post('/add', isAuthenticated, (req, res) => {
   const device = new DeviceModel({
     name: req.body.name,
-    deviceType: req.body.deviceType
+    deviceType: req.body.deviceType,
+    ownerId: req.user.id
   });
 
   device
