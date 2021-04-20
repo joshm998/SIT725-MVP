@@ -17,6 +17,17 @@ router.get('', isAuthenticated, (req, res) => {
   
 });
 
+router.get('/details', isAuthenticated, (req, res) => {
+  DeviceModel.find({_id: req.query.id})
+  .then((result) => {
+    res.send({ result });
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+  
+});
+
 router.post('/add', isAuthenticated, (req, res) => {
   const device = new DeviceModel({
     name: req.body.name,

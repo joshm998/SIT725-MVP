@@ -5,5 +5,5 @@ module.exports = function Routes(app) {
     // Auth Controller
     app.use('/', AuthController);
     // Device Controller
-    app.use('/devices', DeviceController);
+    app.use('/api/devices', DeviceController);
   };
