@@ -21,6 +21,7 @@ router.post('/add', isAuthenticated, (req, res) => {
   const device = new DeviceModel({
     name: req.body.name,
     deviceType: req.body.deviceType,
+    image: req.image,
     ownerId: req.user.id
   });
 

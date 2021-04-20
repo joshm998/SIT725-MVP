@@ -1,0 +1,49 @@
+.dropdown-content {
+    top: 65px !important;
+  }
+  .sidenav {
+    padding-top: 18px;
+    min-height: 500px;
+    overflow-y: auto;
+  }
+  .devices {
+    padding: 0 0 5px 0!important;
+  }
+  .event-card {
+    margin: 20px !important;
+  }
+  .row {
+    padding-top: 30px
+  }
+  .event-title {
+    margin: 1rem 0 .912rem 1rem !important;
+  }
+  .event-today > .card-title {
+    padding: 10px;
+  }
+  .modal-trigger {
+    display: block !important;
+  }
+  h1 {
+    font-size: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  @media only screen and (min-width: 993px) {
+    .sidenav {
+      top: 65px !important;
+    }
+    .container {
+      width: 90%;
+    }
+    main {
+      padding-left: 300px;
+    }
+    main .container {
+      width: 100%;
+      max-width:1500px;
+    }
+    .modal-trigger {
+      display: none !important;
+    }
+  }

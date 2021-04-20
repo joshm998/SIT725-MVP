@@ -1,5 +1,6 @@
 module.exports = {
     root: true,
+    ignorePatterns: ["/public/*.js"],
     extends: ['airbnb-base', 'prettier'],
     plugins: [],
     parserOptions: {
