@@ -8,7 +8,7 @@ function checkAuthenticated() {
 }
 
 function populateDevices() {
-  fetch('http://localhost:8080/devices')
+  fetch('http://localhost:8080/api/devices')
     .then((response) => response.json())
     .then((data) => {
       data.devices.forEach((e) => {

@@ -2,9 +2,16 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/materialize/css/materialize.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
     <link rel="stylesheet" type="text/css" href="../../style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <script type="text/javascript" src="script.js"></script>
-</head>
+    </head>
 
 <body>
     <header>
@@ -38,15 +45,21 @@
 
     <main>
         <div class="container">
-            <h1>Devices</h1>
-            <div class="row">
-                <div class="dashboard">
-                    <div class="card-content devices">
-                    </div>
-                </div>
-
+            <h1 class="title">Device Details</h1>
+            <div>
+                <h5>Device Type</h5>
+                <h6>Water Flow Sensor</h5>
+            </div>
+            <div>
+                <h5>Device Status</h5>
+                <h6>Fully Working</h5>
+            </div>
+            <div>
+                <h5>Device Location</h5>
+                <div id="location-map"></div>
             </div>
         </div>
     </main>
 </body>
+
 </html>
