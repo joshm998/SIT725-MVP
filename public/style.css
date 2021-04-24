@@ -24,6 +24,9 @@
   .modal-trigger {
     display: block !important;
   }
+  #location-map {
+    height: 500px;
+  }
 
 .nav-wrapper {
   width: 100%;
