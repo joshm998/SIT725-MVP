@@ -1,6 +1,9 @@
 const express = require('express');
 const passport = require('passport');
-const isAuthenticated = require('../helpers/authHelper')
+const bcrypt = require('bcrypt');
+const isAuthenticated = require('../helpers/authHelper');
+const { userSchema } = require('../models/user');
+const mongo = require('../../config/mongo');
 
 const router = express.Router();
 
@@ -26,8 +29,23 @@ router.post('/login', (req, res, next) => {
   })(req, res, next);
 });
 
+router.get('/logout', isAuthenticated, (req, res) => {
+  req.logout();
+  res.redirect('/login');
+});
+
 router.get('/user', isAuthenticated, (req, res) =>
   res.send({ user: req.user })
 );
+
+router.post('/register', (req, res) => {
+  const { username, password } = req.body;
+
+  const UserDetails = mongo.model('User', userSchema);
+
+  UserDetails.register({username, active: false}, password);
+  res.redirect("/login/")
+
+});
 
 module.exports = router;

@@ -40,8 +40,8 @@ router.post('/add', isAuthenticated, (req, res) => {
 
   device
     .save()
-    .then((doc) => {
-      res.send({ createdDevice: doc });
+    .then(() => {
+      res.redirect(`/devices`);
     })
     .catch((err) => {
       console.error(err);

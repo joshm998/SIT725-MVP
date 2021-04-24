@@ -11,15 +11,13 @@ function populateDevices() {
   fetch('http://localhost:8080/api/devices')
     .then((response) => response.json())
     .then((data) => {
-      var locationMap = L.map('location-map').setView(
-        [0, 0],
-        13
-      );
+      var locationMap = L.map('location-map').setView([0, 0], 13);
       L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(locationMap);
-      
+
+      deviceLocations = [];
 
       data.devices.forEach((e) => {
         var element = document.createElement('div');
@@ -64,10 +62,13 @@ function populateDevices() {
 
         //Append Item to Map
         var marker = L.marker([e.lat, e.lng]).addTo(locationMap);
-      marker
-        .bindPopup(`<b>${e.name}</b><br/>${e.deviceType}<br/>No Issues<br/><a href="/devices/details?id=${e._id}">View Details</a>`)
-        .openPopup();
+        marker.bindPopup(
+          `<b>${e.name}</b><br/>${e.deviceType}<br/>No Issues<br/><a href="/devices/details?id=${e._id}">View Details</a>`
+        );
+        deviceLocations.push([e.lat, e.lng]);
       });
+      var bounds = new L.LatLngBounds(deviceLocations);
+      locationMap.fitBounds(bounds);
     });
 }
 
