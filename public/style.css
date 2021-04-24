@@ -1,0 +1,58 @@
+.dropdown-content {
+    top: 65px !important;
+  }
+  .sidenav {
+    padding-top: 18px;
+    min-height: 500px;
+    overflow-y: auto;
+  }
+  .devices {
+    padding: 0 0 5px 0!important;
+  }
+  .event-card {
+    margin: 20px !important;
+  }
+  .row {
+    padding-top: 30px
+  }
+  .event-title {
+    margin: 1rem 0 .912rem 1rem !important;
+  }
+  .event-today > .card-title {
+    padding: 10px;
+  }
+  .modal-trigger {
+    display: block !important;
+  }
+  #location-map {
+    height: 500px;
+  }
+
+.nav-wrapper {
+  width: 100%;
+}
+  h1 {
+    font-size: 50px;
+  }
+  @media only screen and (min-width: 993px) {
+    .sidenav {
+      top: 65px !important;
+    }
+    main {
+      padding-left: 300px;
+    }
+    .container {
+      max-width: none;
+      width: 95%;
+    }
+    main .container {
+      width: 100%;
+      max-width:900px;
+      margin: auto;
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+    .modal-trigger {
+      display: none !important;
+    }
+  }

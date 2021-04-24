@@ -1,0 +1,7 @@
+.select-container {
+    padding-left: 0.75rem;
+    padding-right: 0.75em;
+}
+#location-map {
+    height: 500px;
+}
