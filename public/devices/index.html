@@ -1,0 +1,52 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/materialize/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <script type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <header>
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">Logout</a></li>
+        </ul>
+        <div class="navbar-fixed">
+            <nav class="light-blue darken-3">
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="./" class="brand-logo">Aqua</a>
+
+                        <a href="#" data-target="nav-mobile" class="sidenav-trigger">menu</a>
+                        <ul class="right">
+                            <li><a>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <ul id="nav-mobile" class="sidenav sidenav-fixed">
+            <li class="bold">
+                <a href="/">Dashboard</a>
+            </li>
+            <li class="bold">
+                <a href="/devices">My Devices</a>
+            </li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Devices</h1>
+            <a class="waves-effect waves-light btn light-blue darken-3" href="/devices/add">Add Device</a>
+            <div class="row">
+                <div class="dashboard">
+                    <div class="card-content devices">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</body>
+</html>
