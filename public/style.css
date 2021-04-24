@@ -24,24 +24,30 @@
   .modal-trigger {
     display: block !important;
   }
+
+.nav-wrapper {
+  width: 100%;
+}
   h1 {
     font-size: 50px;
-    padding-left: 20px;
-    padding-right: 20px;
   }
   @media only screen and (min-width: 993px) {
     .sidenav {
       top: 65px !important;
     }
-    .container {
-      width: 90%;
-    }
     main {
       padding-left: 300px;
     }
+    .container {
+      max-width: none;
+      width: 95%;
+    }
     main .container {
       width: 100%;
-      max-width:1500px;
+      max-width:900px;
+      margin: auto;
+      padding-left: 30px;
+      padding-right: 30px;
     }
     .modal-trigger {
       display: none !important;

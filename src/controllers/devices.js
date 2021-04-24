@@ -32,7 +32,9 @@ router.post('/add', isAuthenticated, (req, res) => {
   const device = new DeviceModel({
     name: req.body.name,
     deviceType: req.body.deviceType,
-    image: req.image,
+    image: req.body.image,
+    lat: req.body.lat,
+    lng: req.body.lng,
     ownerId: req.user.id
   });
 
